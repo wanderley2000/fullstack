@@ -31,12 +31,17 @@ const Producto = ({ userProfile }) => {
 
     const cambioEnProducto = (e) => {
         const { name, value } = e.target;
-        guardarNuevoProducto({ ...nuevoProducto, [name]: value });
+        const valorTransformado = name === 'marca' ? value.toUpperCase() : value;
+        guardarNuevoProducto({
+            ...nuevoProducto,
+            [name]: valorTransformado
+        });
     };
 
     const editarProducto = (product) => {
         guardarNuevoProducto({
             nombre: product.nombre,
+            marca: product.marca,
             inventario: product.inventario,
             valor: product.valor,
             vendido: product.vendido
@@ -95,7 +100,7 @@ const Producto = ({ userProfile }) => {
                         placeholder="Marca"
                         value={nuevoProducto.marca}
                         onChange={cambioEnProducto}
-                        required
+                        readOnly={editado}
                     />
                     <input
                         type="number"
@@ -148,7 +153,9 @@ const Producto = ({ userProfile }) => {
                                 <td>{product.vendido}</td>
                                 <td>
                                     <div className="action-buttons">
+                                        {/* Botón para editar */}
                                         <button className="button-edit" onClick={() => editarProducto(product)}>Editar</button>
+                                        {/* Botón para eliminar */}
                                         <button className="button-delete" onClick={() => eliminarProducto(product.id)}>Eliminar</button>
                                     </div>
                                 </td>
@@ -160,4 +167,5 @@ const Producto = ({ userProfile }) => {
         </div>
     );
 };
+
 export default Producto;
