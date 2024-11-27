@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import '../App.css';
 
-const Login = ({ onLoginSuccess, isLogin, setIsLogin }) => {
+const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [message, setMessage] = useState('');
+    const [isLogin, setIsLogin] = useState(true);
+
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -15,7 +19,7 @@ const Login = ({ onLoginSuccess, isLogin, setIsLogin }) => {
             const response = await axios.post(url, { email, password });
             setMessage(response.data.message);
             if (isLogin) {
-                onLoginSuccess(response.data.profile);
+                navigate('/producto');
             }
         } catch (error) {
             setMessage(error.response ? error.response.data.message : 'Error de conexión');

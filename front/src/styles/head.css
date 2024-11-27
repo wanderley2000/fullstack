@@ -1,0 +1,141 @@
+/* Resetear márgenes y padding por defecto */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Body básico */
+  body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f9fa;
+  }
+  
+  /* Navbar superior */
+  #templatemo_nav_top {
+    background-color: #333;
+  }
+  
+  #templatemo_nav_top .navbar-sm-brand {
+    color: #fff;
+  }
+  
+  #templatemo_nav_top .navbar-sm-brand:hover {
+    color: #ddd;
+  }
+  
+  #templatemo_nav_top .fa {
+    color: #fff;
+  }
+  
+  #templatemo_nav_top .fa:hover {
+    color: #ddd;
+  }
+  
+  /* Estilos para el navbar principal */
+  .navbar {
+    background-color: #fff;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .navbar .navbar-brand {
+    color: #28a745;
+    font-weight: bold;
+  }
+  
+  .navbar .navbar-brand:hover {
+    color: #218838;
+  }
+  
+  .navbar .navbar-nav .nav-link {
+    color: #333;
+    font-weight: 500;
+  }
+  
+  .navbar .navbar-nav .nav-link:hover {
+    color: #28a745;
+  }
+  
+  .navbar .nav-icon {
+    color: #333;
+    font-size: 18px;
+    margin-right: 15px;
+  }
+  
+  .navbar .nav-icon:hover {
+    color: #28a745;
+  }
+  
+  /* Navbar collapsible (responsive) */
+  .navbar-toggler-icon {
+    background-color: #333;
+  }
+  
+  /* Ajustes en pantallas pequeñas */
+  @media (max-width: 991px) {
+    #templatemo_nav_top {
+      display: block;
+    }
+  
+    .navbar {
+      padding: 8px 0;
+    }
+  
+    .navbar .navbar-nav {
+      text-align: center;
+    }
+  
+    .navbar .navbar-nav .nav-link {
+      padding: 8px;
+    }
+  
+    .navbar .navbar-collapse {
+      text-align: center;
+    }
+  
+    .navbar .navbar-collapse .nav-item {
+      margin-bottom: 10px;
+    }
+  
+    .navbar .nav-icon {
+      font-size: 22px;
+    }
+  
+    .navbar .nav-icon span {
+      top: 0;
+      left: 100%;
+      transform: translate(-50%, -50%);
+    }
+  
+    /* Para los íconos de la parte superior */
+    #templatemo_nav_top .w-100 {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    #templatemo_nav_top .w-100 i {
+      margin: 5px 0;
+    }
+  }
+  
+  /* Para pantallas pequeñas, estilo de las redes sociales */
+  @media (max-width: 576px) {
+    .navbar .nav-icon {
+      font-size: 20px;
+    }
+  
+    .navbar .nav-icon span {
+      font-size: 10px;
+    }
+  
+    #templatemo_nav_top .w-100 {
+      text-align: center;
+    }
+  
+    .navbar .navbar-brand {
+      font-size: 1.5rem;
+    }
+  }
+
+  
