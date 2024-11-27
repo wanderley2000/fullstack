@@ -8,14 +8,14 @@ function Home() {
         height: "80vh",
         gap: "30px",
         padding: "20px",
-        boxSizing: "border-box"
+        boxSizing: "border-box",
       }}
     >
       {/* Carrusel */}
       <div
         id="carouselExampleDark"
         className="carousel carousel-dark slide"
-        style={{ width: "500px", height: "300px"}}
+        style={{ width: "500px", height: "300px" }}
       >
         {/* Indicadores del carrusel */}
         <div className="carousel-indicators">
@@ -77,7 +77,10 @@ function Home() {
           data-bs-slide="prev"
           style={{ backgroundColor: "transparent", border: "none" }}
         >
-          <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span
+            className="carousel-control-prev-icon"
+            aria-hidden="true"
+          ></span>
           <span className="visually-hidden">Previous</span>
         </button>
         <button
@@ -87,22 +90,166 @@ function Home() {
           data-bs-slide="next"
           style={{ backgroundColor: "transparent", border: "none" }}
         >
-          <span className="carousel-control-next-icon" aria-hidden="true"></span>
+          <span
+            className="carousel-control-next-icon"
+            aria-hidden="true"
+          ></span>
           <span className="visually-hidden">Next</span>
         </button>
       </div>
 
-      {/* Tarjeta */}
-      <div className="card" style={{ width: "600px", height: "300px" }}>
-        <div className="row g-0 h-100">
-          <div className="col-md-6 h-100">
-            <img
-              src="https://acortar.link/6WifRp"
-              className="img-fluid rounded-start h-100"
-              alt="Card"
-              style={{ objectFit: "cover" }}
-            />
-          </div>  vb
+      <div
+        className="card"
+        style={{ width: "600px", border: "none", overflow: "hidden" }}
+      >
+        <div className="row g-0" style={{ height: "auto" }}>
+          {/* Carrusel 1 */}
+          <div className="col-md-6">
+            <div
+              id="carouselExample1"
+              className="carousel slide"
+              data-bs-ride="carousel"
+            >
+              <div className="carousel-inner">
+                <div className="carousel-item active">
+                  <img
+                    src="https://acortar.link/DDoX9C"
+                    className="d-block w-100"
+                    alt="Imagen 1"
+                    style={{
+                      objectFit: "cover",
+                      width: "100%",
+                      height: "auto", // Ajuste automático de altura
+                    }}
+                  />
+                </div>
+                <div className="carousel-item">
+                  <img
+                    src="https://acortar.link/SNkZWJ"
+                    className="d-block w-100"
+                    alt="Imagen 2"
+                    style={{
+                      objectFit: "cover",
+                      width: "100%",
+                      height: "auto", // Ajuste automático de altura
+                    }}
+                  />
+                </div>
+                <div className="carousel-item">
+                  <img
+                    src="https://acortar.link/DfCewN"
+                    className="d-block w-100"
+                    alt="Imagen 3"
+                    style={{
+                      objectFit: "cover",
+                      width: "100%",
+                      height: "auto", // Ajuste automático de altura
+                    }}
+                  />
+                </div>
+              </div>
+              <button
+                className="carousel-control-prev"
+                type="button"
+                data-bs-target="#carouselExample1"
+                data-bs-slide="prev"
+                style={{ backgroundColor: "transparent", border: "none" }}
+              >
+                <span
+                  className="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+                <span className="visually-hidden">Previous</span>
+              </button>
+              <button
+                className="carousel-control-next"
+                type="button"
+                data-bs-target="#carouselExample1"
+                data-bs-slide="next"
+                style={{ backgroundColor: "transparent", border: "none" }}
+              >
+                <span
+                  className="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+                <span className="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
+
+          {/* Carrusel 2 */}
+          <div className="col-md-6">
+            <div
+              id="carouselExample2"
+              className="carousel slide"
+              data-bs-ride="carousel"
+            >
+              <div className="carousel-inner">
+                <div className="carousel-item active">
+                  <img
+                    src="https://acortar.link/EWOedE"
+                    className="d-block w-100"
+                    alt="Imagen 4"
+                    style={{
+                      objectFit: "cover",
+                      width: "100%",
+                      height: "auto", // Ajuste automático de altura
+                    }}
+                  />
+                </div>
+                <div className="carousel-item">
+                  <img
+                    src="https://acortar.link/Pqltw5"
+                    className="d-block w-100"
+                    alt="Imagen 5"
+                    style={{
+                      objectFit: "cover",
+                      width: "100%",
+                      height: "auto", // Ajuste automático de altura
+                    }}
+                  />
+                </div>
+                <div className="carousel-item">
+                  <img
+                    src="https://acortar.link/NEwgPk"
+                    className="d-block w-100"
+                    alt="Imagen 6"
+                    style={{
+                      objectFit: "cover",
+                      width: "100%",
+                      height: "auto", // Ajuste automático de altura
+                    }}
+                  />
+                </div>
+              </div>
+              <button
+                className="carousel-control-prev"
+                type="button"
+                data-bs-target="#carouselExample2"
+                data-bs-slide="prev"
+                style={{ backgroundColor: "transparent", border: "none" }}
+              >
+                <span
+                  className="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+                <span className="visually-hidden">Previous</span>
+              </button>
+              <button
+                className="carousel-control-next"
+                type="button"
+                data-bs-target="#carouselExample2"
+                data-bs-slide="next"
+                style={{ backgroundColor: "transparent", border: "none" }}
+              >
+                <span
+                  className="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+                <span className="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>

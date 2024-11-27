@@ -1,11 +1,11 @@
 const db = require('../db');
 
 exports.addProduct = (req, res) => {
-    const { nombre, marca, inventario, valor, vendido } = req.body;
+    const { nombre, marca, inventario, valor, vendido, imagen } = req.body;
     const estadoInicial = inventario > 0 ? 1 : 0;
 
-    const sql = 'INSERT INTO productos (nombre, marca, inventario, valor, vendido, estado) VALUES (?, ?, ?, ?, ?, ?)';
-    db.query(sql, [nombre, marca, inventario, valor, vendido, estadoInicial], (error) => {
+    const sql = 'INSERT INTO productos (nombre, marca, inventario, valor, vendido, estado, imagen) VALUES (?, ?, ?, ?, ?, ?, ?)';
+    db.query(sql, [nombre, marca, inventario, valor, vendido, estadoInicial, imagen], (error) => {
         if (error) {
             console.error('Error al agregar el producto:', error);
             return res.status(400).json({ message: 'Error al agregar el producto.' });
@@ -26,13 +26,13 @@ exports.getProducts = (req, res) => {
 
 exports.updateProduct = (req, res) => {
     const { id } = req.params;
-    const { nombre, inventario, valor, vendido } = req.body;
+    const { nombre, inventario, valor, vendido, imagen } = req.body;
 
     const nuevoInventario = inventario - vendido;
     const nuevoEstado = nuevoInventario > 0 ? 1 : 0;
 
     const sql = 'UPDATE productos SET nombre = ?, inventario = ?, valor = ?, vendido = ?, estado = ? WHERE id = ?';
-    db.query(sql, [nombre, nuevoInventario, valor, vendido, nuevoEstado, id], (error, results) => {
+    db.query(sql, [nombre, nuevoInventario, valor, vendido, nuevoEstado, imagen, id], (error, results) => {
         if (error) {
             console.error('Error al editar el producto:', error);
             return res.status(400).json({ message: 'Error al editar el producto.' });
@@ -54,8 +54,8 @@ exports.deleteProduct = (req, res) => {
 
         const product = results[0];
 
-        db.query('INSERT INTO productos_eliminados (nombre, marca, inventario, valor, vendido) VALUES (?, ?, ?, ?, ?)', 
-            [product.nombre, product.marca, product.inventario, product.valor, product.vendido], 
+        db.query('INSERT INTO productos_eliminados (nombre, marca, inventario, valor, vendido, imagen) VALUES (?, ?, ?, ?, ?, ?)', 
+            [product.nombre, product.marca, product.inventario, product.valor, product.vendido, product.imagen],
             (err) => {
                 if (err) {
                     console.error('Error al agregar el producto a la tabla de eliminados:', err);
