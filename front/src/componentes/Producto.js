@@ -115,7 +115,7 @@ const Producto = ({ userProfile }) => {
         <h1 className="title is-2">{editado ? "Editar Producto" : "Agregar Producto" }</h1>
         <form onSubmit={anadirProducto}>
           <input
-            class="input is-primary"
+            className="input is-primary"
             type="text"
             name="nombre"
             placeholder="Nombre"
@@ -124,7 +124,7 @@ const Producto = ({ userProfile }) => {
             required
           />
           <input
-            class="input is-primary"
+            className="input is-primary"
             type="text"
             name="marca"
             placeholder="Marca"
@@ -133,7 +133,7 @@ const Producto = ({ userProfile }) => {
             readOnly={editado}
           />
           <input
-            class="input is-primary"
+            className="input is-primary"
             type="number"
             name="inventario"
             placeholder="Inventario"
@@ -142,7 +142,7 @@ const Producto = ({ userProfile }) => {
             required
           />
           <input
-            class="input is-primary"
+            className="input is-primary"
             type="number"
             name="valor"
             placeholder="Valor"
@@ -151,7 +151,7 @@ const Producto = ({ userProfile }) => {
             required
           />
           <input
-           class="input is-primary"
+           className="input is-primary"
             type="number"
             name="vendido"
             placeholder="Vendidos"
@@ -160,7 +160,7 @@ const Producto = ({ userProfile }) => {
             required
           />
           <input
-            class="input is-primary"
+            className="input is-primary"
             type="url"
             name="imagen"
             placeholder="Pega la URL de tu imagen"
@@ -170,7 +170,7 @@ const Producto = ({ userProfile }) => {
           />
           
           <button type="submit"
-            class="input is-primary">
+            className="input is-primary">
             {editado ? "Actualizar Producto" : "Agregar Producto"}
           </button>
         </form>
@@ -178,7 +178,7 @@ const Producto = ({ userProfile }) => {
       </div>
       <div className="table-section box">
 
-        <p class="title is-2 ">Lista de productos</p>
+        <p className="title is-2 ">Lista de productos</p>
         <table>
           <thead>
             <tr>
