@@ -7,6 +7,12 @@ const productRoutes = require('./routes/productRoutes');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+app.use(cors({
+    origin: ['http://localhost:3000', 'https://fullstack-chi-lovat.vercel.app'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true,
+  }));
+
 app.use(cors());
 app.use(bodyParser.json());
 
