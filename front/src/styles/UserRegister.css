@@ -1,0 +1,48 @@
+@import "https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css";
+
+.dark-form-container {
+    background-color: #2c2f38; /* Dark background */
+    color: #fff; /* White text */
+    padding: 30px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .dark-input {
+    background-color: #3a3f47; /* Dark input background */
+    color: #fff; /* White text in input */
+    border: 1px solid #4e5b63; /* Subtle input border */
+  }
+  
+  .dark-input:focus {
+    border-color: #007bff; /* Blue border on focus */
+    box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25);
+  }
+  
+  .input-group-text {
+    background-color: #4e5b63; /* Darker background for input text */
+    color: #fff; /* White text */
+  }
+  
+  .btn-dark {
+    background-color: #007bff; /* Dark blue button */
+    color: #fff; /* White text */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .btn-dark:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+  
+  /* For form labels */
+  .text-light {
+    color: #ccc;
+  }
+  

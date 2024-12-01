@@ -1,0 +1,257 @@
+@import "https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css";
+
+
+body{
+  
+  font-family: monospace;
+  margin: 0;
+  padding: 0;
+  width: 100%; 
+  background-color:#00c1a4 !important;
+}
+.tarjetas-container{
+  padding:25px;
+
+}
+.title.is-2{  
+color: #00c1a4;
+}
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.producto-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+  border-radius: 0;
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+.form-section,
+.table-section {
+  flex: 1;
+  min-width: 300px;
+  max-width: 45%;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .producto-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .form-section,
+  .table-section {
+    max-width: 100%;
+    padding: 20px;
+  
+}
+}
+
+.form-section h1,
+.table-section h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"] {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ffffff;
+  border-radius: 10px;
+}
+
+button {
+  padding: 10px;
+  font-size: 16px;
+  background-color: #860400;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #00c96b;
+}
+
+
+
+.button-edit {
+  background-color: #0b4400;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  margin-bottom: 5px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 2px;
+}
+
+
+.button-edit:hover {
+  background-color: #00f33d;
+}
+
+.button-delete {
+  background-color: #a00000;
+  color: white;
+  border: none;
+  padding: 5px 4px 5px 4px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 5px;
+}
+.button.is-text.has-text-black:hover
+{
+  color: white;
+}
+.button-delete:hover {
+  background-color: #ff3131;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table,
+th,
+td {
+  border: 1px solid #ddd;
+}
+
+th,
+td {
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.login-container {
+  font-family:monospace ;
+  color: #000000;
+  font-size: 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 20px;
+  flex-wrap: wrap;
+  margin: -0.75rem;
+  flex: 1; /* Hace que las columnas se ajusten automáticamente */
+  padding: 0.75rem;
+  @media (max-width: 768px) {
+    .columns.is-mobile .column {
+      flex: 0 0 100%; 
+      @media (min-width: 769px) and (max-width: 1023px) {
+        .columns.is-tablet .column {
+          flex: 0 0 50%; 
+          @media (min-width: 1024px) {
+            .columns.is-desktop .column {
+              flex: 0 0 25%;
+            }
+          }
+        }
+      }
+    } 
+  }
+}
+
+
+.green-text {
+  color: #48c774; /* Verde claro */
+}
+
+
+    
+
+
+.login-container h1 {
+  font-family: 'Teko', sans-serif;
+  font-size: 30px;
+  color: #0b00a5;
+  text-align: center;
+  margin-bottom: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: -0.75rem;
+  flex: 1; /* Hace que las columnas se ajusten automáticamente */
+  padding: 0.75rem;
+  @media (max-width: 768px) {
+    .columns.is-mobile .column {
+      flex: 0 0 100%; 
+      @media (min-width: 769px) and (max-width: 1023px) {
+        .columns.is-tablet .column {
+          flex: 0 0 50%; 
+          @media (min-width: 1024px) {
+            .columns.is-desktop .column {
+              flex: 0 0 25%;
+            }
+          }
+        }
+      }
+    } 
+  }
+}
+
+.login-container form {
+  
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 300px;
+  width: 100%;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  flex-wrap: wrap;
+  margin: -0.75rem;
+  flex: 0; /* Hace que las columnas se ajusten automáticamente */
+  padding: 0.75rem;
+  @media (max-width: 768px) {
+    .columns.is-mobile .column {
+      flex: 0 0 100%; 
+      @media (min-width: 769px) and (max-width: 1023px) {
+        .columns.is-tablet .column {
+          flex: 0 0 50%; 
+          @media (min-width: 1024px) {
+            .columns.is-desktop .column {
+              flex: 0 0 25%;
+            }
+          }
+        }
+      }
+    } 
+  }
+}
+
+
+
+
+
