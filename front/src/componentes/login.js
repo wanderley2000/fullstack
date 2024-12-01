@@ -27,30 +27,63 @@ const Login = () => {
     };
 
     return (
+      
         <div className="login-container">
-            <h1>{isLogin ? 'Bienvenido, por favor inicia sesión' : 'Registrarse'}</h1>
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="email"
-                    placeholder="Correo Electrónico"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                />
-                <input
-                    type="password"
-                    placeholder="Contraseña"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                />
-                <button type="submit">{isLogin ? 'Iniciar sesión' : 'Registrar'}</button>
-            </form>
-            <p>{message}</p>
-            <button onClick={() => setIsLogin(!isLogin)}>
-                {isLogin ? '¿No tienes cuenta? Regístrate' : '¿Ya tienes cuenta? Inicia sesión'}
-            </button>
-        </div>
+        
+        <form className="box" onSubmit={handleSubmit}>
+      <div className="field">
+  <article className="message is-success"> {}
+    <div className="message-body ">
+      {isLogin ? 'Bienvenido, por favor inicia sesión' : 'Registrarse'}
+    </div>
+  </article>
+  <label className="label">Correo Electrónico</label>
+  <div className="control">
+    {/* Tu contenido aquí */}
+              <input
+                className="input"
+                type="email"
+                placeholder="Ingresa tu correo"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+            </div>
+          </div>
+      
+          <div className="field">
+            <label className="label">Contraseña</label>
+            <div className="control">
+              <input
+                className="input"
+                type="password"
+                placeholder="Ingresa tu contraseña"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+            </div>
+          </div>
+      
+          <div className="field">
+            <div className="control">
+              <button className="button is-primary" type="submit">
+                {isLogin ? 'Iniciar sesión' : 'Registrar'}
+              </button>
+            </div>
+          </div>
+        </form>
+        <p className="help">{message}</p>
+        <button
+          
+          className="button is-text title is-5 has-text-black"
+          hover="has-text-white"
+          onClick={() => setIsLogin(!isLogin)}
+        >
+          {isLogin ? '¿No tienes cuenta? Regístrate' : '¿Ya tienes cuenta? Inicia sesión'}
+        </button>
+      </div>
+      
     );
 };
 

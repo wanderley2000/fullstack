@@ -109,11 +109,13 @@ const Producto = ({ userProfile }) => {
   };
 
   return (
+   
     <div className="producto-container">
-      <div className="form-section">
-        <h1>{editado ? "Editar Producto" : "Agregar Producto"}</h1>
+      <div className="form-section box">
+        <h1 className="title is-2">{editado ? "Editar Producto" : "Agregar Producto" }</h1>
         <form onSubmit={anadirProducto}>
           <input
+            class="input is-primary"
             type="text"
             name="nombre"
             placeholder="Nombre"
@@ -122,6 +124,7 @@ const Producto = ({ userProfile }) => {
             required
           />
           <input
+            class="input is-primary"
             type="text"
             name="marca"
             placeholder="Marca"
@@ -130,6 +133,7 @@ const Producto = ({ userProfile }) => {
             readOnly={editado}
           />
           <input
+            class="input is-primary"
             type="number"
             name="inventario"
             placeholder="Inventario"
@@ -138,6 +142,7 @@ const Producto = ({ userProfile }) => {
             required
           />
           <input
+            class="input is-primary"
             type="number"
             name="valor"
             placeholder="Valor"
@@ -146,6 +151,7 @@ const Producto = ({ userProfile }) => {
             required
           />
           <input
+           class="input is-primary"
             type="number"
             name="vendido"
             placeholder="Vendidos"
@@ -154,6 +160,7 @@ const Producto = ({ userProfile }) => {
             required
           />
           <input
+            class="input is-primary"
             type="url"
             name="imagen"
             placeholder="Pega la URL de tu imagen"
@@ -161,15 +168,17 @@ const Producto = ({ userProfile }) => {
             onChange={cambioEnProducto}
             required
           />
-
-          <button type="submit">
+          
+          <button type="submit"
+            class="input is-primary">
             {editado ? "Actualizar Producto" : "Agregar Producto"}
           </button>
         </form>
         {mensaje && <p>{mensaje}</p>}
       </div>
-      <div className="table-section">
-        <h2>Lista de Productos</h2>
+      <div className="table-section box">
+
+        <p class="title is-2 ">Lista de productos</p>
         <table>
           <thead>
             <tr>
@@ -190,7 +199,7 @@ const Producto = ({ userProfile }) => {
                 <td>{product.valor}</td>
                 <td>{product.vendido}</td>
                 <td>
-                  <div className="action-buttons">
+                  
                     <button
                       className="button-edit"
                       onClick={() => editarProducto(product)}
@@ -203,7 +212,7 @@ const Producto = ({ userProfile }) => {
                     >
                       Eliminar
                     </button>
-                  </div>
+                  
                 </td>
               </tr>
             ))}

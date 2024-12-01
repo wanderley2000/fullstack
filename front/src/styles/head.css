@@ -1,4 +1,5 @@
-/* Resetear márgenes y padding por defecto */
+@import "https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css";
+
 * {
     margin: 0;
     padding: 0;
@@ -66,8 +67,29 @@
   .navbar .nav-icon:hover {
     color: #28a745;
   }
+  .navbar-toggler{
+    flex-wrap: wrap;
+    margin: -0.75rem;
+    flex: 1; 
+    padding: 0.75rem;
+    @media (max-width: 768px) {
+      .columns.is-mobile .column {
+        flex: 0 0 100%; 
+        @media (min-width: 769px) and (max-width: 1023px) {
+          .columns.is-tablet .column {
+            flex: 0 0 50%; 
+            @media (min-width: 1024px) {
+              .columns.is-desktop .column {
+                flex: 0 0 25%;
+              }
+            }
+          }
+        }
+      } 
+    }
+  }
   
-  /* Navbar collapsible (responsive) */
+
   .navbar-toggler-icon {
     background-color: #333;
   }

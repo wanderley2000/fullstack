@@ -9,15 +9,16 @@ function UserRegister() {
   const [email, setEmail] = useState("");
 
   return (
-    <div className="container-fluid d-flex flex-column min-vh-100">
-      <div className="container d-flex justify-content-center flex-grow-1">
-        <div className="col-md-6">
+    <div className="container-fluid d-flex flex-column min-vh-100 ">
+      <div className="container d-flex justify-content-center flex-grow-1 ">
+        <div className="col-md-6 box">
           <h5 className="text-center mb-4">Registra tu información</h5>
           <form>
             {/* Nombres y Apellidos */}
             <div className="mb-3">
               <label htmlFor="nombre" className="form-label">Nombres y Apellidos</label>
               <input
+                class="input is-primary"
                 type="text"
                 className="form-control"
                 id="nombre"
@@ -31,6 +32,7 @@ function UserRegister() {
             <div className="mb-3">
               <label htmlFor="numeroDocumento" className="form-label">Número de Documento</label>
               <input
+                class="input is-primary"
                 type="text"
                 className="form-control"
                 id="numeroDocumento"
@@ -44,6 +46,7 @@ function UserRegister() {
             <div className="mb-3">
               <label htmlFor="celular" className="form-label">Celular de Contacto</label>
               <input
+                class="input is-primary"
                 type="text"
                 className="form-control"
                 id="celular"
@@ -57,6 +60,7 @@ function UserRegister() {
             <div className="mb-3">
               <label htmlFor="email" className="form-label">Correo Electrónico</label>
               <input
+                class="input is-primary"
                 type="email"
                 className="form-control"
                 id="email"
@@ -68,7 +72,7 @@ function UserRegister() {
 
             {/* Botón de Continuar */}
             <div className="d-grid gap-2">
-              <Link to="/home" className="btn btn-dark">
+              <Link to="/home" class="button is-primary">
                 Continuar
               </Link>
             </div>
