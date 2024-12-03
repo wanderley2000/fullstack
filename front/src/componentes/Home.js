@@ -11,13 +11,11 @@ function Home() {
         boxSizing: "border-box",
       }}
     >
-      {/* Carrusel */}
       <div
         id="carouselExampleDark"
         className="carousel carousel-dark slide"
         style={{ width: "500px", height: "300px" }}
       >
-        {/* Indicadores del carrusel */}
         <div className="carousel-indicators">
           <button
             type="button"
@@ -41,7 +39,6 @@ function Home() {
           ></button>
         </div>
 
-        {/* Contenido del carrusel */}
         <div className="carousel-inner">
           <div className="carousel-item active" data-bs-interval="10000">
             <img
@@ -69,7 +66,6 @@ function Home() {
           </div>
         </div>
 
-        {/* Controles del carrusel */}
         <button
           className="carousel-control-prev"
           type="button"
@@ -119,7 +115,7 @@ function Home() {
                     style={{
                       objectFit: "cover",
                       width: "100%",
-                      height: "auto", // Ajuste automático de altura
+                      height: "auto",
                     }}
                   />
                 </div>
@@ -131,7 +127,7 @@ function Home() {
                     style={{
                       objectFit: "cover",
                       width: "100%",
-                      height: "auto", // Ajuste automático de altura
+                      height: "auto",
                     }}
                   />
                 </div>
@@ -143,7 +139,7 @@ function Home() {
                     style={{
                       objectFit: "cover",
                       width: "100%",
-                      height: "auto", // Ajuste automático de altura
+                      height: "auto",
                     }}
                   />
                 </div>
@@ -193,7 +189,7 @@ function Home() {
                     style={{
                       objectFit: "cover",
                       width: "100%",
-                      height: "auto", // Ajuste automático de altura
+                      height: "auto",
                     }}
                   />
                 </div>
@@ -205,7 +201,7 @@ function Home() {
                     style={{
                       objectFit: "cover",
                       width: "100%",
-                      height: "auto", // Ajuste automático de altura
+                      height: "auto",
                     }}
                   />
                 </div>
@@ -217,7 +213,7 @@ function Home() {
                     style={{
                       objectFit: "cover",
                       width: "100%",
-                      height: "auto", // Ajuste automático de altura
+                      height: "auto",
                     }}
                   />
                 </div>

@@ -11,7 +11,7 @@ const Login = () => {
 
     const navigate = useNavigate();
 
-    const handleSubmit = async (e) => {
+    const enviarFormulario = async (e) => {
         e.preventDefault();
         const url = isLogin ? 'http://localhost:3001/api/login' : 'http://localhost:3001/api/register';
 
@@ -30,7 +30,7 @@ const Login = () => {
       
         <div className="login-container">
         
-        <form className="box" onSubmit={handleSubmit}>
+        <form className="box" onSubmit={enviarFormulario}>
       <div className="field">
   <article className="message is-success"> {}
     <div className="message-body ">
@@ -39,7 +39,7 @@ const Login = () => {
   </article>
   <label className="label">Correo Electrónico</label>
   <div className="control">
-    {/* Tu contenido aquí */}
+
               <input
                 className="input"
                 type="email"

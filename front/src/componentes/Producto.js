@@ -7,6 +7,7 @@ const Producto = ({ userProfile }) => {
   const [nuevoProducto, guardarNuevoProducto] = useState({
     nombre: "",
     marca: "",
+    descripcion: "",
     inventario: "",
     valor: "",
     vendido: "",
@@ -47,6 +48,7 @@ const Producto = ({ userProfile }) => {
     guardarNuevoProducto({
       nombre: product.nombre,
       marca: product.marca,
+      descripcion: product.descripcion,
       inventario: product.inventario,
       valor: product.valor,
       vendido: product.vendido,
@@ -78,6 +80,7 @@ const Producto = ({ userProfile }) => {
       guardarNuevoProducto({
         nombre: "",
         marca: "",
+        descripcion: "",
         inventario: "",
         valor: "",
         vendido: "",
@@ -129,6 +132,15 @@ const Producto = ({ userProfile }) => {
             name="marca"
             placeholder="Marca"
             value={nuevoProducto.marca}
+            onChange={cambioEnProducto}
+            readOnly={editado}
+          />
+          <input
+            className="input is-primary"
+            type="text"
+            name="descripcion"
+            placeholder="descripcion"
+            value={nuevoProducto.descripcion}
             onChange={cambioEnProducto}
             readOnly={editado}
           />

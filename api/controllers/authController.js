@@ -4,7 +4,7 @@ const db = require('../db');
 exports.register = (req, res) => {
     const { email, password } = req.body;
     bcrypt.hash(password, 10, (err, hash) => {
-        if (err) return res.status(500).json({ message: 'Error al hashear la contraseña.' });
+        if (err) return res.status(500).json({ message: 'Error en la contraseña.' });
 
         db.query('INSERT INTO users (email, password, profile) VALUES (?, ?, ?)', [email, hash, 0], (error) => {
             if (error) return res.status(400).json({ message: 'Error al registrar el usuario.' });
