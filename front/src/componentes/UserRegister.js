@@ -57,19 +57,20 @@ function UserRegister() {
   };
 
   return (
+  <div className="tarjetas-container">
     <div className="container-fluid d-flex flex-column min-vh-100 ">
       <div className="container d-flex justify-content-center flex-grow-1 ">
-        <div className="col-md-6 box">
-          <h5 className="text-center mb-4">Registra tu información</h5>
+        <div className="col-md-6 box title is-6">
+          <h5 className="text-center mb-4 title is-4">Registra tu información</h5>
           <form onSubmit={enviarFormulario}>
 
             <div className="mb-3">
-              <label htmlFor="nombres" className="form-label">nombress y Apellidos</label>
+              <label htmlFor="nombres" className="form-label">Nombres y Apellidos</label>
               <input
                 className="form-control"
                 type="text"
                 id="nombres"
-                placeholder="nombress y apellidos"
+                placeholder="Nombres y apellidos"
                 value={nombres}
                 onChange={(e) => setnombres(e.target.value)}
                 required
@@ -145,6 +146,7 @@ function UserRegister() {
         </div>
       </div>
     </div>
+  </div>
   );
 }
 

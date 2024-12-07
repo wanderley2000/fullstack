@@ -29,6 +29,18 @@ export const CartProvider = ({ children }) => {
     localStorage.setItem('cart', JSON.stringify(cart));
   }, [cart]);
 
+  // Función para actualizar inventario en el backend
+  const actualizarInventarioEnBack = async (productId, nuevoInventario) => {
+    try {
+      await axios.put(`http://localhost:3001/api/productos/${productId}`, { 
+        inventario: nuevoInventario  // Actualizamos solo el inventario
+      });
+      console.log('Inventario actualizado con éxito');
+    } catch (error) {
+      console.error('Error al actualizar el inventario en el backend:', error);
+    }
+  };
+
   //agregar productos al carrito
   const agregarCarrito = (product) => {
     const inventory = productInventory.find(item => item.id === product.id)?.inventario;
@@ -61,13 +73,6 @@ export const CartProvider = ({ children }) => {
     
     // Actualizar el inventario en el backend
     actualizarInventarioEnBack(product.id, inventory - 1);
-  };
-  const actualizarInventarioEnBack = async (productId, nuevoInventario) => {
-    try {
-      await axios.put(`http://localhost:3001/api/productos/${productId}`, { inventario: nuevoInventario });
-    } catch (error) {
-      console.error('Error al actualizar el inventario en el backend:', error);
-    }
   };
 
   // Función para eliminar productos del carrito

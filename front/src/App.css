@@ -55,6 +55,10 @@ color: #00c1a4;
   
 }
 }
+.registraU{
+  padding-top: 20px;
+}
+
 
 .form-section h1,
 .table-section h2 {
@@ -121,6 +125,9 @@ button:hover {
   border-radius: 4px;
   cursor: pointer;
   margin-bottom: 5px;
+  margin-left: 12px;
+  margin-top: 5px;
+  
 }
 .button.is-text.has-text-black:hover
 {
@@ -128,6 +135,13 @@ button:hover {
 }
 .button-delete:hover {
   background-color: #ff3131;
+}
+
+.button.is-link.is-small{
+  margin-left: 10px;
+  
+  text-align: left;
+
 }
 
 table {
@@ -220,38 +234,30 @@ th {
   }
 }
 
-.login-container form {
-  
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  max-width: 300px;
-  width: 100%;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  flex-wrap: wrap;
-  margin: -0.75rem;
-  flex: 0; /* Hace que las columnas se ajusten automáticamente */
-  padding: 0.75rem;
-  @media (max-width: 768px) {
-    .columns.is-mobile .column {
-      flex: 0 0 100%; 
-      @media (min-width: 769px) and (max-width: 1023px) {
-        .columns.is-tablet .column {
-          flex: 0 0 50%; 
-          @media (min-width: 1024px) {
-            .columns.is-desktop .column {
-              flex: 0 0 25%;
-            }
-          }
-        }
-      }
-    } 
-  }
+.logoPrinc{
+  border-radius: 15px;
+  width: 50px;
+  padding-left: 4px;
+  padding-right: 4px;
+  transform: scale(1.5); 
+  transition: transform 0.3s ease;
+}
+
+.logoPrinc:hover {
+  transform: scale(1.7);
 }
 
 
+.has-background-black-bis{
+  color: hsl(171, 100%, 41%);
 
+}
 
+.nav-text-animado{
+  transform:scale(1.0);
+}
 
+.nav-text-animado:hover{
+  transition: transform 0.2s ease;
+  transform: scale(1.1);
+}

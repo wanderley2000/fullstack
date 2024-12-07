@@ -182,7 +182,7 @@ const Producto = ({ userProfile }) => {
           />
           
           <button type="submit"
-            className="input is-primary">
+            className="input button is-success is-large ">
             {editado ? "Actualizar Producto" : "Agregar Producto"}
           </button>
         </form>
@@ -213,13 +213,13 @@ const Producto = ({ userProfile }) => {
                 <td>
                   
                     <button
-                      className="button-edit"
+                      className="button-edit nav-text-animado"
                       onClick={() => editarProducto(product)}
                     >
                       Editar
                     </button>
                     <button
-                      className="button-delete"
+                      className="button-delete nav-text-animado"
                       onClick={() => eliminarProducto(product.id)}
                     >
                       Eliminar

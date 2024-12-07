@@ -26,7 +26,8 @@ const ViewProduct = () => {
   }
 
   return (
-    <div>
+    <div className="tarjetas-container">
+      <div className="box">
       <h1>{producto.nombre}</h1>
 
       {producto.imagen && (
@@ -36,7 +37,9 @@ const ViewProduct = () => {
       <p>{producto.descripcion}</p>
       <p>Valor: ${producto.valor}</p>
       <button onClick={() => navigate(-1)}>Volver</button>
+      </div>
     </div>
+      
   );
 }
 

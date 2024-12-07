@@ -4,7 +4,7 @@ import { useCart } from '../componentes/CartContext';
 
 const ShowProducts = () => {
   const [products, setProducts] = useState([])
-  const { addToCart } = useCart(); // Acceder a la función para agregar productos al carrito
+  const { agregarCarrito } = useCart(); // Acceder a la función para agregar productos al carrito
 
   // productos desde el backend
   useEffect(() => {
@@ -14,7 +14,7 @@ const ShowProducts = () => {
         if (!response.ok) {
           throw new Error('Error al obtener los productos');
         }
-
+          
         const data = await response.json();
         setProducts(data);
       } catch (error) {
@@ -26,7 +26,7 @@ const ShowProducts = () => {
   }, []);
 
   const agregarAlCarrito = (product) => {
-    addToCart(product); // Agregar al carrito
+    agregarCarrito(product); // Agregar al carrito
   };
 
   return (

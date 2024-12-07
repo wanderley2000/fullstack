@@ -1,10 +1,9 @@
 import React from 'react';
-import { useCart } from '../componentes/CartContext'; // para permitir el uso de estados y otros recursos.
+import { useCart } from '../componentes/CartContext';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 
 const Carrito = () => {
-  const { cart, clearCart } = useCart(); // clearCart para vaciar el carrito
+  const { cart, vaciarCarrito } = useCart(); // vaciarCarrito para vaciar el carrito
 
   // Calcular el total de la compra
   const valorTotal = cart.reduce((total, product) => {
@@ -15,49 +14,7 @@ const Carrito = () => {
       return total;
     }
     return total + valorReal * cantReal;
-
   }, 0);
-
-
-  const chequearCompra = async () => {
-    const id_compra = Date.now(); // genera id de compra
-
-    // Mapear los productos del carrito, validando los valores
-    const productos = cart.map(product => {
-      const valorReal = parseFloat(product.valor);
-      const cantReal = parseInt(product.quantity, 10);
-
-      // Validar que los valores sean números antes de enviarlos
-      if (isNaN(valorReal) || isNaN(cantReal)) {
-        console.error('Producto con valores inválidos:', product);
-        return null;
-      }
-
-      return {
-        id: product.id,
-        nombre: product.nombre,
-        valor: valorReal,
-        cantidad: cantReal
-      };
-    }).filter(product => product !== null);
-
-    if (productos.length === 0) {
-      alert('Error: Hay productos con datos inválidos en el carrito.');
-      return;
-    }
-
-    try {
-      const response = await axios.post('http://localhost:3001/api/registerSale', {
-        id_compra,
-        productos
-      });
-      console.log('Venta registrada:', response.data);
-      clearCart(); // Vaciar el carrito después de realizar la compra
-    } catch (error) {
-      console.error('Error al registrar la venta:', error);
-      alert('Hubo un error al realizar la compra');
-    }
-  };
 
   return (
     <div className="container">
@@ -93,10 +50,9 @@ const Carrito = () => {
           </div>
 
           <div className="buttons">
-            <Link to="/pagar" onClick={chequearCompra} className="button is-link">Pagar</Link>
-            <button onClick={clearCart} className="button is-danger">
-              Vaciar Carrito
-            </button>
+            {/* Pasar cart a la página de pago */}
+            <Link to={{ pathname: "/pagar", state: { cart } }} className="button is-link">Pagar</Link>
+            <button onClick={vaciarCarrito} className="button is-danger">Vaciar Carrito</button>
           </div>
         </div>
       )}

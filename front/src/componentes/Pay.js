@@ -1,24 +1,41 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useLocation } from "react-router-dom"; // Importar useLocation
 
 function Pay() {
-  const [identificacion, setidentificacion] = useState("");
-  const [cliente, setCliente] = useState(null);
-  const [direccion, setDireccion] = useState("");
-  const [celular, setCelular] = useState("");
-  const [error, setError] = useState("");
+  const [identificacion, setIdentificacion] = useState("");  // Estado para el número de identificación
+  const [cliente, setCliente] = useState(null);  // Estado para la información del cliente
+  const [direccion, setDireccion] = useState("");  // Estado para la dirección
+  const [celular, setCelular] = useState("");  // Estado para el celular
+  const [error, setError] = useState("");  // Estado para manejar errores
 
+  // Usar useLocation para obtener el estado que pasamos desde Carrito
+  const location = useLocation();
+  const cart = location.state?.cart || []; // Si no hay cart, asignar un array vacío
+
+  // Calcular el valor total del carrito
+  useEffect(() => {
+    const total = cart.reduce((total, product) => {
+      const valorReal = parseFloat(product.valor);
+      const cantReal = parseInt(product.quantity, 10);
+      if (isNaN(valorReal) || isNaN(cantReal)) {
+        console.error('Error en los valores del producto:', product);
+        return total;
+      }
+      return total + valorReal * cantReal;
+    }, 0);
+  }, [cart]);
+
+  // Manejar el cambio en el campo del documento
   const cambiosIdentificacion = (e) => {
-    setidentificacion(e.target.value);
+    setIdentificacion(e.target.value);
   };
 
+  // Buscar al cliente en la base de datos con el número de identificación
   const BuscarCliente = async () => {
     try {
-      //para obtener la información del cliente
       const response = await axios.get(`http://localhost:3001/api/clientes/${identificacion}`);
       const data = response.data;
-
-      //llenar el formulario con la información
       setCliente(data);
       setDireccion(data.direccion);
       setCelular(data.celular);
@@ -29,35 +46,64 @@ function Pay() {
     }
   };
 
+  // Actualizar los datos del cliente si es necesario
   const ActualizarCliente = async () => {
     try {
-      //actualizar los datos del cliente
       await axios.put(`http://localhost:3001/api/clientes/${identificacion}`, {
         celular,
-        direccion
+        direccion,
       });
-
       alert("Datos actualizados correctamente");
     } catch (err) {
       alert("Error al actualizar los datos");
     }
   };
 
-  const Pagar = () => {
-    alert("Pago realizado con éxito.");
+  // Función para realizar el pago
+  const realizarPago = async () => {
+    if (!cliente) {
+      alert("Por favor, busque al cliente antes de continuar.");
+      return;
+    }
+
+    // Mapear los productos del carrito
+    const productos = cart.map((product) => ({
+      id: product.id,
+      nombre: product.nombre,
+      valor: parseFloat(product.valor),
+      cantidad: parseInt(product.quantity, 10),
+    }));
+
+    try {
+      // Enviar la información al servidor para registrar la venta
+      const response = await axios.post("http://localhost:3001/api/registerSale", {
+        clienteId: cliente.id,
+        documento: identificacion,
+        direccion,
+        celular,
+        productos,
+      });
+      console.log("Venta registrada:", response.data);
+      alert("Pago realizado con éxito.");
+    } catch (error) {
+      console.error("Error al registrar la venta:", error);
+      alert("Hubo un error al realizar la compra");
+    }
   };
 
   return (
+    <div className="tarjetas-container">
+      <div className="box">
     <div className="container">
-      <h3>Por favor ingresa tu número de identificacion para continuar con el pago</h3>
+      <h3>Por favor ingresa tu número de identificación para continuar con el pago</h3>
 
       <div className="mb-3">
-        <label htmlFor="identificacion" className="form-label">Número de identificacion</label>
+        <label htmlFor="identificacion" className="form-label">Número de identificación</label>
         <input
           type="text"
           className="form-control"
           id="identificacion"
-          placeholder="Número de identificacion"
+          placeholder="Número de identificación"
           value={identificacion}
           onChange={cambiosIdentificacion}
         />
@@ -110,12 +156,17 @@ function Pay() {
               Actualizar Datos
             </button>
 
-            <button type="button" className="btn btn-success mt-3" onClick={Pagar}>
-              Pagar
-            </button>
+            <div className="mt-3">
+              <button type="button" className="btn btn-success mt-3" onClick={realizarPago}>
+                Confirmar Compra
+              </button>
+              
+            </div>
           </form>
         </div>
       )}
+    </div>
+    </div>
     </div>
   );
 }

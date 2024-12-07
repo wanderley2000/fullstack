@@ -16,7 +16,7 @@ exports.addClient = (req, res) => {
 
 //Obtenemos un cliente por su numero de identificacion
 exports.getClienteByidentificacion = (req, res) => {
-    const { identificacion } = req.params; 
+    const { identificacion } = req.params;
     console.log("identificacion recibido:", identificacion);
   
     const sql = 'SELECT * FROM clientes WHERE identificacion = ?';
